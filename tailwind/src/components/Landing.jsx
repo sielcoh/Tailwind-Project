@@ -1,4 +1,6 @@
 import React from 'react'
+import { useState } from 'react'
+import { FaBars } from 'react-icons/fa'
 import pic1 from '../../public/site_images/pic1.jpg'
 import pic2 from '../../public/site_images/pic2.jpg'
 import pic3 from '../../public/site_images/pic3.jpg'
@@ -7,11 +9,15 @@ import refelct from '../../public/site_images/refelct.jpg'
 import refelct2 from '../../public/site_images/refelct2.jpg'
 
 export default function Landing() {
+    const [sideNav, setSideNav] = useState(true)
     return (
         <>
             <header className='min-h-[100px] bg-white'>
                 <nav className='container center min-h-[inherit]'>
-                    <ul className='flex space-x-4'>
+                    <div className='w-full px-4 md:hidden'>
+                        <FaBars className='text-4xl cursor-pointer' onClick={()=>{setSideNav(!sideNav)}}/>
+                    </div>
+                    <ul className={`md:w-auto md:flex md:space-x-4 md:static absolute top-[100px] bg-white w-full ${sideNav ? 'hidden' : 'block'}`}>
                         <li><a href='#'>Home</a></li>
                         <li><a href='#'>About</a></li>
                         <li><a href='#'>Gallery</a></li>
@@ -64,7 +70,7 @@ export default function Landing() {
             </div>
 
             <div className='min-h-[300px] bg-center bg-cover' style={{ backgroundImage: 'url(/../public/site_images/cover2.jpg)' }}>
-                <div className='container text-white text-center'>
+                <div className='container text-white text-center py-4'>
                     <h2 className='text-5xl font-thin text-center py-3'>Let's Program Together</h2>
                     <p className='max-w-[500px] text-center mx-auto py-3' >Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis deserunt laudantium sapiente eveniet? Sunt tempore eum maiores id officiis suscipit maxime animi placeat expedita laborum, rem, aspernatur magni quasi magnam.</p>
                     <button className='bg-white text-black px-4 py-2 rounded-lg cursor-pointer'>Join Us</button>
@@ -79,18 +85,18 @@ export default function Landing() {
                         <div className='md:w-5/12 mb-4 mx-auto'>
                             <img src={refelct} alt='smartphone' className=' h-[300px]' />
                         </div>
-                        <div className='md:w-6/12 mb-4 text-center'>
-                            <h2 className='font-thin text-5xl'>The best site</h2>
+                        <div className='md:w-6/12 mb-4'>
+                            <h2 className='font-thin text-5xl pb-3'>The best site</h2>
                             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus corrupti voluptatem dicta iure dolores optio, cupiditate quod saepe esse maxime officia fuga velit temporibus ipsum laboriosam alias sapiente assumenda explicabo magnam libero in expedita! Laborum numquam saepe necessitatibus praesentium dolor!</p>
                         </div>
 
                         <div className='md:w-6/12 mb-4 order-1'>
-                            <h2 className='font-thin text-5xl'>Subscribe today!</h2>
+                            <h2 className='font-thin text-5xl pb-3'>Subscribe today!</h2>
                             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus corrupti voluptatem dicta iure dolores optio, cupiditate quod saepe esse maxime officia fuga velit temporibus ipsum laboriosam alias sapiente assumenda explicabo magnam libero in expedita! Laborum numquam saepe necessitatibus praesentium dolor!</p>
                         </div>
 
-                        <div className='md:w-5/12 mb-4 order-0 md:order-2 mt-6 mx-auto'> 
-                            <img src={refelct2} alt='smartphone2' className='w-full h-[300px] '/>
+                        <div className='md:w-5/12 mb-4 order-0 md:order-2 mt-6 mx-auto'>
+                            <img src={refelct2} alt='smartphone2' className='w-full h-[300px] ' />
                         </div>
 
                     </div>
